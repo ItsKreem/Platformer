@@ -36,14 +36,18 @@ public class GameManager : MonoBehaviour
 
     public void GoToNextLevel()
     {
-        if (CurrentLevel == 2)
-        {
-            CurrentLevel = 1;
-            SceneManager.LoadScene(0);
-            return;
-        }
         CurrentLevel++;
-        SceneManager.LoadScene(CurrentLevel);
+        if (CurrentLevel == 2) { SceneManager.LoadScene("Level2"); }
+        if (CurrentLevel == 3) { SceneManager.LoadScene("Complete"); }
+    }
+
+    public void Death()
+    {
+        SceneManager.LoadScene("Death");
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
     void Start()
     {

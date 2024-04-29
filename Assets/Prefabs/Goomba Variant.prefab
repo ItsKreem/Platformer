@@ -221,10 +221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe06d265708f2842b0622b0fc179d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentLevel: 1
   MaxHealth: 10
   Invulnerability:
     CurrentProgress: 0
     Duration: 1
+  HurtAudio: {fileID: 3278014321588166386, guid: d4c8958982cf10e4ebea504bfa690f71, type: 3}
 --- !u!4 &7600747364189366076 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2310038772744592293, guid: 7258621513889d44f947fe0487c7abc2, type: 3}

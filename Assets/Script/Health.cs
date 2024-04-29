@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Health : MonoBehaviour
+public class Health : GameManager
 {
     public delegate void HitEvent(GameObject source);
     public HitEvent OnHit;
@@ -13,6 +14,8 @@ public class Health : MonoBehaviour
 
     public float MaxHealth = 10f;
     public Cooldown Invulnerability;
+
+    public AudioSource HurtAudio;
 
     public float CurrentHealth
     {
@@ -56,6 +59,10 @@ public class Health : MonoBehaviour
             return;
 
         _currentHealth -= damage;
+        if (HurtAudio != null)
+        {
+            GameObject.Instantiate(HurtAudio, transform.position, Quaternion.identity);
+        }
 
         if (_currentHealth <= 0f )
         {
@@ -71,6 +78,11 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
+        Debug.Log("This has been triggereed.");
+        if (this.gameObject.CompareTag("Player") == true)
+        {
+            Death();
+        }
         Destroy(this.gameObject);
     }
 
